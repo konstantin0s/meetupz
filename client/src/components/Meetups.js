@@ -16,16 +16,27 @@ class Meetups extends Component {
     getMeetups() {
         axios.get('http://localhost:3000/api/meetups')
             .then(res => {
-                this.setState({ meetups: res.data }, () =>
-                    console.log(this.state))
+                this.setState({ meetups: res.data }, () => {
+
+                })
             })
             .catch(err => console.log(err));
     }
 
     render() {
+
+        const meetupItems = this.state.meetups.map((meetup, i) => {
+            return (
+                <li key={i} className="link">{meetup.name}</li>
+            )
+        })
+
         return (
             <div>
                 <h2>Meetups page.</h2>
+                <ul className="link">
+                    {meetupItems}
+                </ul>
             </div>
         );
     }

@@ -1,11 +1,11 @@
 import React from 'react';
-
 import './App.css';
+import Main from './components/Main';
 
 const App = () => (
 
   <div className="App">
-    <h2>Meetups</h2>
+    <Main />
   </div>
 
 );

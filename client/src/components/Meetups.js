@@ -14,7 +14,7 @@ class Meetups extends Component {
         this.getMeetups();
     }
 
-    getMeetups() {
+    getMeetups = () => {
         axios.get('http://localhost:3000/api/meetups')
             .then(res => {
                 this.setState({ meetups: res.data }, () => {

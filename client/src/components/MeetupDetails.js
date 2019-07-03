@@ -9,12 +9,37 @@ class MeetupDetails extends Component {
             details: ''
         };
     }
+
+
+    componentWillMount() {
+        this.getMeetup();
+    }
+
+
+    getMeetup = () => {
+        let meetupId = this.props.match.params.id;
+        axios.get(`http://localhost:3000/api/meetups/${meetupId}`)
+            .then(res => {
+                this.setState({ details: res.data }, () => {
+
+                })
+            })
+            .catch(err => console.log(err));
+    }
+
     render() {
         return (
             <div>
                 <br />
                 <Link to="/" className="btn grey">Back</Link>
-                <h2>Details</h2>
+                <h2>{this.state.details.name}</h2>
+                <ul className="collection">
+                    <li className="collection-item">City: {this.state.details.city}</li>
+                    <li className="collection-item">Address: {this.state.details.address}</li>
+                </ul>
+                <Link className="btn"
+                    to={`meetups/edit/${this.state.details.id}`}>Edit</Link>
+                <button className="btn red right">Delete</button>
             </div>
         );
     }

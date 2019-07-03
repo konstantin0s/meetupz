@@ -2,10 +2,13 @@
   "name": "meetupz",
   "version": "1.0.0",
   "main": "server/server.js",
+  "homepage": "http://konstantin0s.github.io/meetupz/",
   "engines": {
     "node": ">=6"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "lint": "eslint .",
     "start": "node .",
     "posttest": "npm run lint && npm audit"
@@ -13,6 +16,7 @@
   "dependencies": {
     "compression": "^1.0.3",
     "cors": "^2.5.2",
+    "gh-pages": "^2.0.1",
     "helmet": "^3.10.0",
     "loopback": "^3.22.0",
     "loopback-boot": "^2.6.5",

@@ -4,8 +4,26 @@ import axios from 'axios';
 
 class AddMeetup extends Component {
 
-    onSubmit = () => {
+    addMeetup = (newMeetup) => {
+        axios.request({
+            method: 'POST',
+            url: 'http://localhost:3000/api/meetups',
+            data: newMeetup
+        })
+            .then(res => {
+                this.props.history.push('/')
+            })
+            .catch(err => console.log(err));
+    }
 
+    onSubmit = (e) => {
+        e.preventDefault();
+        const newMeetup = {
+            name: this.refs.name.value,
+            city: this.refs.city.value,
+            address: this.refs.address.value
+        }
+        this.addMeetup(newMeetup);
     }
 
     render() {

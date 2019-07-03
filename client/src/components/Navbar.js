@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Navbar extends Component {
     constructor(props) {
@@ -11,22 +12,19 @@ class Navbar extends Component {
         return (
 
             <div>
-                <nav class="nav-extended">
-                    <div class="nav-wrapper">
-                        <a href="#" class="brand-logo">Logo</a>
-                        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><a href="sass.html">Sass</a></li>
-                            <li><a href="badges.html">Components</a></li>
-                            <li><a href="collapsible.html">JavaScript</a></li>
+                <nav className="blue darken-3">
+                    <div className="nav-wrapper">
+                        <a href="/" className="brand-logo center">Meetupz</a>
+                        <a data-activates="main-menu" className="button-collapse show-on-large">
+                            <i className="fa fa-bars"></i>
+                        </a>
+                        <ul className="right hide-on-small-only">
+                            <li><Link to="/"><i className="fa fa-users"></i> Meetups</Link></li>
                         </ul>
-                    </div>
-                    <div class="nav-content">
-                        <ul class="tabs tabs-transparent">
-                            <li class="tab"><a href="#test1">Test 1</a></li>
-                            <li class="tab"><a class="active" href="#test2">Test 2</a></li>
-                            <li class="tab disabled"><a href="#test3">Disabled Tab</a></li>
-                            <li class="tab"><a href="#test4">Test 4</a></li>
+                        <ul className="side-nav" id="main-menu">
+                            <li><Link to="/"><i className="fa fa-users"></i> Meetups</Link></li>
+                            <li><Link to="/meetups/add"><i className="fa fa-plus"></i> Add Meetup</Link></li>
+                            <li><Link to="/about"><i className="fa fa-question-circle"></i> About</Link></li>
                         </ul>
                     </div>
                 </nav>
